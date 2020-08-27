@@ -1,1 +1,17 @@
-@import './reset'
+@import './reset';
+
+
+#background {
+    position: absolute;
+    z-index: 1;
+    width: 474px;
+    height: 702px;
+}
+
+#canvas {
+    position: absolute;
+    width: 474px;
+    height: 702px;
+    opacity: 1;
+    z-index: 10;
+}

@@ -1,6 +1,5 @@
 var MiniCssExtractPlugin = require("mini-css-extract-plugin");
 var CopyWebpackPlugin = require('copy-webpack-plugin');
-var autoprefixer = require('autoprefixer');
 
 module.exports = {
     mode: 'development',
@@ -8,7 +7,7 @@ module.exports = {
         index: './assets/js/index.ts'
     },
     output: {
-        path: __dirname + '/builtAssets',
+        path: __dirname + '/dist/assets',
         publicPath: '/assets/',
         filename: 'js/[name].js'
     },
@@ -70,9 +69,13 @@ module.exports = {
     plugins: [
         new CopyWebpackPlugin({
             patterns: [
-                { from: 'assets/img/', to: 'img' }
+                { from: 'assets/img/', to: 'img' },
+                { context: 'views', from: '**/*', to: '..' }
             ]
         }),
         new MiniCssExtractPlugin({ filename: "css/[name].css" })
-    ]
+    ],
+    resolve: {
+        extensions: ['.ts', '.js']
+    }
 };
