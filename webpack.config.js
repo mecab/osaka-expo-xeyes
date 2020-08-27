@@ -3,17 +3,18 @@ var CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
     mode: 'development',
+    context: __dirname + '/assets',
     entry: {
-        index: './assets/js/index.ts'
+        index: './js/index.ts'
     },
     output: {
         path: __dirname + '/dist/assets',
-        publicPath: '/assets/',
+        publicPath: './assets',
         filename: 'js/[name].js'
     },
     devServer: {
         contentBase: './views',
-        publicPath: '/assets/'
+        publicPath: '/assets'
     },
     module: {
         rules: [
@@ -69,8 +70,8 @@ module.exports = {
     plugins: [
         new CopyWebpackPlugin({
             patterns: [
-                { from: 'assets/img/', to: 'img' },
-                { context: 'views', from: '**/*', to: '..' }
+                { from: 'img/', to: 'img' },
+                { context: '../views', from: '**/*', to: '..' }
             ]
         }),
         new MiniCssExtractPlugin({ filename: "css/[name].css" })

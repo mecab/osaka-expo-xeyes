@@ -8,7 +8,6 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack -p --optimize-dedupe",
     "build-dev": "webpack",
-    "dist": "npm run build && mkdir -p dist && cp -r views/* dist && cp -r builtAssets dist/assets",
     "debug": "webpack --watch & { node-dev app.js; kill $!; }"
   },
   "author": "mecab",
